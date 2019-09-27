@@ -6,6 +6,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse; // on ajoute la classe de réponse json
+use Psr\Log\LoggerInterface; // Important de récupérer la classe pour l'utiliser dans nos fichiers
+use Twig\Environment;
+use App\Service\RandomHelper; // Ne pas oublier de use le service
+
 
 class ExempleController extends AbstractController
 {
@@ -18,20 +22,27 @@ class ExempleController extends AbstractController
     /**
      * @Route("/", name="homepage") // ajout d'une propriété name
      **/
-    public function index() {
-        $nbRandomPrenom=random_int(0,9);
-        $nbRandomNom=random_int(0,9);
-        $nbRandomVerbe=random_int(0,3);
-        $nbRandomCOD=random_int(0,4);
-
+    public function index(LoggerInterface $logger) {
+        $logger->info('Webédiable');
         return $this->render('index.html.twig', [
-            'title' => 'Générateur d excuses','prenom'=> $this->arrayPrenoms[$nbRandomPrenom],
-            'nom'=> $this->arrayNom[$nbRandomNom],
-            'verbe'=> $this->arrayVerbe[$nbRandomVerbe], 'COD'=> $this->arrayCOD[$nbRandomCOD]
+            'title' => 'monkey'
+
         ]);
+    }
+//    public function index() {
+//        $nbRandomPrenom=random_int(0,9);
+//        $nbRandomNom=random_int(0,9);
+//        $nbRandomVerbe=random_int(0,3);
+//        $nbRandomCOD=random_int(0,4);
+//
+//        return $this->render('index.html.twig', [
+//            'title' => 'Générateur d excuses','prenom'=> $this->arrayPrenoms[$nbRandomPrenom],
+//            'nom'=> $this->arrayNom[$nbRandomNom],
+//            'verbe'=> $this->arrayVerbe[$nbRandomVerbe], 'COD'=> $this->arrayCOD[$nbRandomCOD]
+//        ]);
 
 //        return $this->render('index.html.twig', ['title'=>"bonjour"]);
-    }
+//    }
 
     /**
      * @Route("/api", name="api_index")
