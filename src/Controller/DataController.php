@@ -43,18 +43,14 @@ class DataController extends AbstractController
     public function list (EntityManagerInterface $em) {
         $repository = $em->getRepository(Monkey::class);
 
-        $monkeys = $repository->findAll();
+        $monkeys = $repository->findAllMaleMonkey(); // On l'utilise de la même manière que les autres fonctions !
 
         if(!$monkeys) {
             throw $this->createNotFoundException('Sorry, no monkey came for the banana this time');
         }
 
-//        return $this->render('list.html.twig', [
-//            'monkey' => $monkeys
-//
-//
-//        ]);
-        return new JsonResponse($monkeys); // on retourne en json par simplicité !
-
+        return $this->render('monkey.html.twig', [
+            "monkeys" => $monkeys
+        ]);
     }
 }
