@@ -1,11 +1,19 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Le P'tit Kooin{% endblock %}
 
 {% block body %}
+    <img src="image/logo.png" class="logo" >
     <h1>{{ title }}</h1>
     {#<p>{{ prenom }}  {{ nom }} {{ verbe }}  {{ COD }}</p>#}
-    <img src="./public/image/logo.png" alt="logo">
+
+
+
+    {#style="width:20%"#}
+    <div class="alignbutton">
+        <button class = "button"><a href=" {{ path('loginpage') }}">Connexion</a></button>
+        <button class = "button"><a href=" {{ path('signinpage') }}">Inscription</a></button>
+    </div>
+
 {% endblock %}
 
 {% block javascripts %}

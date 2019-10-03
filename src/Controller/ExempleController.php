@@ -25,10 +25,31 @@ class ExempleController extends AbstractController
     public function index(LoggerInterface $logger) {
         $logger->info('Webédiable');
         return $this->render('index.html.twig', [
-            'title' => 'monkey'
+            'title' => 'Bienvenue !'
 
         ]);
     }
+
+    /**
+     * @Route("/login", name="loginpage")
+     **/
+    public function loginpage()
+    {
+        return $this->render('login.html.twig', [
+            'title' => 'Page de connexion'
+        ]);
+    }
+
+    /**
+     * @Route("/signin", name="signinpage")
+     **/
+    public function signinpage()
+    {
+        return $this->render('signin.html.twig', [
+            'title' => 'Page inscription'
+        ]);
+    }
+
 //    public function index() {
 //        $nbRandomPrenom=random_int(0,9);
 //        $nbRandomNom=random_int(0,9);
