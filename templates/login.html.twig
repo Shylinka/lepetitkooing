@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Le P'tit Kooin{% endblock %}
+{% block title %}Login Page{% endblock %}
 
 {% block body %}
     <img src="images/logo.png" class="logo" >
@@ -10,8 +10,7 @@
 
     {#style="width:20%"#}
     <div class="alignbutton">
-        <button class = "button"><a href=" {{ path('loginpage') }}">Connexion</a></button>
-        <button class = "button"><a href=" {{ path('signinpage') }}">Inscription</a></button>
+        <button class = "button"><a href=" {{ path('homepage') }}">Accueil</a></button>
     </div>
 
 {% endblock %}
