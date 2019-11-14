@@ -40,12 +40,22 @@ class ExempleController extends AbstractController
         ]);
     }
 
+//    /**
+//     * @Route("/isRegistered", name="isRegisteredPage")
+//     **/
+//    public function isRegisteredPage()
+//    {
+//        return $this->render('isRegistered.html.twig', [
+//            'title' => 'Tu es inscrit petit enfant'
+//        ]);
+//    }
+
     /**
-     * @Route("/signin", name="signinpage")
+     * @Route("/registration", name="registrationpage")
      **/
-    public function signinpage()
+    public function registrationpage()
     {
-        return $this->render('signin.html.twig', [
+        return $this->render('register.html.twig', [
             'title' => 'Page inscription'
         ]);
     }

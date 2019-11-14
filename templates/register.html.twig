@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block title %}Login Page{% endblock %}
+
+{% block body %}
+    <img src="images/logo.png" class="logo" >
+    <h1>{{ title }}</h1>
+    {#<p>{{ prenom }}  {{ nom }} {{ verbe }}  {{ COD }}</p>#}
+
+
+    <div class="menu">
+
+
+        <form action="{{ path('isRegisteredPage') }}" method="post">
+            <div class="form-group">
+                <label for="inputPseudo">Nom d'utilisateur </label>
+                <input type="text" class="form-control" id="inputPseudo" placeholder="Ex : Kiki" name="username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Adresse mail</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ex : jaimelephp@gmail.com" name="email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Mot de passe</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ex : ************" name="password">
+            </div>
+            <button type="submit" class = "blueButton">J'ai fini</button>
+            {#<button type="submit" class="btn btn-outline-primary">J'ai fini</button>#}
+        </form>
+    </div>
+
+    {#style="width:20%"#}
+    <div class="alignbutton">
+        <button class = "button"><a href=" {{ path('homepage') }}">Accueil</a></button>
+    </div>
+
+
+    {#<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>#}
+    {#<label for="inputEmail" class="sr-only">Email</label>#}
+    {#<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>#}
+    {#<label for="inputPassword" class="sr-only">Password</label>#}
+    {#<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>#}
+
+    {#<input type="hidden" name="_csrf_token"#}
+           {#value="{{ csrf_token('authenticate') }}"#}
+    {#>#}
+
+{% endblock %}
