@@ -1,51 +1,15 @@
-{#{% extends 'base.html.twig' %}#}
-{#{% block title %}Login Page{% endblock %}#}
-
-{#{% block body %}#}
-    {#<img src="images/logo.png" class="logo" >#}
-    {#<h1>{{ title }}</h1>#}
-    {#<p>{{ prenom }}  {{ nom }} {{ verbe }}  {{ COD }}</p>#}
-
-
-
-    {#style="width:20%"#}
-    {#<div class="alignbutton">#}
-        {#<button class = "button"><a href=" {{ path('homepage') }}">Accueil</a></button>#}
-    {#</div>#}
-
-    {#<div class="menu">#}
-
-
-        {#<form action="{{ path('annoncespage') }}" method="post">#}
-            {#<div class="form-group">#}
-                {#{% if is_granted('IS_AUTHENTICATED_FULLY') %}#}
-                    {#<p>Email: {{ app.user.email }}</p>#}
-                {#{% endif %}#}
-                {#<label for="inputPseudo">Nom d'utilisateur </label>#}
-                {#<input type="text" class="form-control" id="inputPseudo" placeholder="Ex : Kiki" name="username">#}
-            {#</div>#}
-            {#<div class="form-group">#}
-                {#<label for="exampleInputPassword1">Mot de passe</label>#}
-                {#<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ex : ************" name="password">#}
-            {#</div>#}
-            {#<button type="submit" class = "blueButton">Connexion</button>#}
-            {#<button type="submit" class="btn btn-outline-primary">J'ai fini</button>#}
-        {#</form>#}
-    {#</div>#}
-
-    {#style="width:20%"#}
-    {#<div class="alignbutton">#}
-        {#<button class = "button"><a href=" {{ path('homepage') }}">Accueil</a></button>#}
-    {#</div>#}
-
-
-{#{% endblock %}#}
-
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
+    <img src="images/logo.png" class="logo" >
+    <div class="alignbutton">
+        <button class = "button"><a href=" {{ path('homepage') }}">Accueil</a></button>
+        <button class = "button"><a href=" {{ path('registrationpage') }}">Inscription</a></button>
+    </div>
+
+<div class="menu">
     <form method="post">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -53,33 +17,26 @@
 
         {% if app.user %}
             <div class="mb-3">
-                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                Tu es connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnecte toi</a>
             </div>
         {% endif %}
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
+        <div class="form-group">
+            <label for="inputUsername">Nom d'utilisateur </label>
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Ex : Kiki" required autofocus>
+            <br/>
+            <label for="inputUsername">Mot de passe </label>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Ex : ************" required>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        <input type="hidden" name="_csrf_token"
-               value="{{ csrf_token('authenticate') }}"
-        >
-
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
-
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" name="_remember_me"> Remember me
-                </label>
-            </div>
-        #}
-
-        <button class="btn btn-lg btn-primary" type="submit">
-            Sign in
-        </button>
+        </div>
+        {#<button type="submit" class = "blueButton"><a></a>Inscription</button>#}
+        {#<button class="btn btn-lg btn-primary" type="submit">#}
+        <button class="blueButton" type="submit"><a></a>Connexion</button>
     </form>
+</div>
+
 {% endblock %}

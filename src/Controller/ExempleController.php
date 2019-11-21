@@ -98,7 +98,7 @@ class ExempleController extends AbstractController
     public function registrationpage()
     {
         return $this->render('register.html.twig', [
-            'title' => 'Page inscription'
+            'title' => 'Inscription'
         ]);
     }
 
