@@ -8,8 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse; // on ajoute la classe de réponse json
 use Psr\Log\LoggerInterface; // Important de récupérer la classe pour l'utiliser dans nos fichiers
 use Twig\Environment;
-use App\Service\RandomHelper; // Ne pas oublier de use le service
-
+//use App\Service\RandomHelper; // Ne pas oublier de use le service
+use App\Security\LoginFromAuthenticator;
 
 class ExempleController extends AbstractController
 {
@@ -22,21 +22,63 @@ class ExempleController extends AbstractController
     /**
      * @Route("/", name="homepage") // ajout d'une propriété name
      **/
-    public function index(LoggerInterface $logger) {
-        $logger->info('Webédiable');
+    public function index(/*LoggerInterface $logger*/) {
+
+
+
         return $this->render('index.html.twig', [
             'title' => 'Bienvenue !'
 
         ]);
     }
 
+//    /**
+//     * @Route("/login", name="loginpage")
+//     **/
+//    public function loginpage()
+//    {
+//        return $this->render('login.html.twig', [
+//            'title' => 'Page de connexion'
+//        ]);
+//    }
+
     /**
-     * @Route("/login", name="loginpage")
+     * @Route("/annonces", name="annoncespage")
      **/
-    public function loginpage()
+    public function annoncespage()
     {
-        return $this->render('login.html.twig', [
-            'title' => 'Page de connexion'
+        return $this->render('annoncesPage.html.twig', [
+            'title' => $this->getUser()->getUsername()
+        ]);
+    }
+
+    /**
+     * @Route("/annonce", name="annoncepage")
+     **/
+    public function annoncepage()
+    {
+        return $this->render('annoncePage.html.twig', [
+            'title' => 'Annonce seule'
+        ]);
+    }
+
+    /**
+     * @Route("/monprofil", name="profilpage")
+     **/
+    public function profilpage()
+    {
+        return $this->render('profil.html.twig', [
+            'title' => 'Mon profil'
+        ]);
+    }
+
+    /**
+     * @Route("/createannonce", name="createannoncepage")
+     **/
+    public function createannoncepage()
+    {
+        return $this->render('createannoncepage.html.twig', [
+            'title' => 'Créer une annonce'
         ]);
     }
 
@@ -86,6 +128,7 @@ class ExempleController extends AbstractController
 
         return new JsonResponse($data);
     }
+
 
 
 }

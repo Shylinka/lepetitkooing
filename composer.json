@@ -16,7 +16,7 @@
         "symfony/maker-bundle": "^1.13",
         "symfony/monolog-bundle": "^3.0",
         "symfony/orm-pack": "^1.0",
-        "symfony/profiler-pack": "*",
+        "symfony/profiler-pack": "^1.0",
         "symfony/security-bundle": "4.3.*",
         "symfony/twig-bundle": "4.3.*",
         "symfony/var-dumper": "4.3.*",
@@ -24,7 +24,6 @@
         "symfony/yaml": "4.3.*"
     },
     "require-dev": {
-        "symfony/profiler-pack": "^1.0"
     },
     "config": {
         "preferred-install": {
