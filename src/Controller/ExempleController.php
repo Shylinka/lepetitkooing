@@ -71,16 +71,16 @@ class ExempleController extends AbstractController
             'title' => 'Mon profil'
         ]);
     }
-
-    /**
-     * @Route("/createannonce", name="createannoncepage")
-     **/
-    public function createannoncepage()
-    {
-        return $this->render('createannoncepage.html.twig', [
-            'title' => 'Créer une annonce'
-        ]);
-    }
+//
+//    /**
+//     * @Route("/createannonce", name="createannoncepage")
+//     **/
+//    public function createannoncepage()
+//    {
+//        return $this->render('createannoncepage.html.twig', [
+//            'title' => 'Créer une annonce'
+//        ]);
+//    }
 
 //    /**
 //     * @Route("/isRegistered", name="isRegisteredPage")
@@ -101,6 +101,8 @@ class ExempleController extends AbstractController
             'title' => 'Inscription'
         ]);
     }
+
+
 
 //    public function index() {
 //        $nbRandomPrenom=random_int(0,9);
