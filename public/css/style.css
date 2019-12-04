@@ -11,10 +11,19 @@ h1 {
     text-align: center;
 }
 
-p{
+#categorie-select{
+    font-family: 'Raleway', sans-serif;
+    border-radius: 5px;
+    padding-top: 3px;
+    padding-left: 7px;
+    padding-bottom: 3px;
+    border-color: rgb(212, 212, 212);
+}
+
+.titre{
     font-size:30px;
     text-align: center;
-    color: #78cbff;
+    color: #9977FF;
     font-weight: bold;
 }
 
@@ -153,3 +162,22 @@ a:hover, a:focus, a:active, a:visited
     margin-left: 10%;
 }
 
+.cadreAnnonce{
+    margin-top:35px;
+    padding-top : 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    /*border-style: solid;*/
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 15px;
+    /*border-color : #9977FF;*/
+    background-color: #F0F0F0;
+}
+
+.titreAnnonce{
+
+    font-weight: bold;
+    color: #78cbff;
+    font-size: 20px;
+}

@@ -1,18 +1,21 @@
 {% extends 'base.html.twig' %}
-{% block title %}Login Page{% endblock %}
+{% block title %}Mon Profil{% endblock %}
 
-{% block body %}    <img src="images/logo.png" class="logo" >
-    <h1> {{ title }}</h1>
-    <div class="titre">Viens voir toutes les autre annonces !</div>
-
+{% block body %}
+    <img src="images/logo.png" class="logo" >
+    <h1>Annonces de {{ user }}</h1>
 
     {#style="width:20%"#}
     <div class="alignbutton">
-
-        <button class = "button"><a href=" {{ path('profilpage') }}">Mon profil</a></button>
         <button class = "button"><a href=" {{ path('annoncespage') }}">Annonces</a></button>
         <button class = "button"><a href=" {{ path('app_logout') }}">Deconnexion</a></button>
+
+
+
     </div>
+
+
+
 
 
 

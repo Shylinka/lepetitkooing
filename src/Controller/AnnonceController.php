@@ -69,6 +69,9 @@ class AnnonceController extends AbstractController
             'title' => 'Bravo, tu viens de poster une nouvelle annonce !'
         ]);
 
+
+
+
         //return $this->redirectToRoute('annoncespage');
 
 //        $em->persist($annonce);
@@ -88,6 +91,39 @@ class AnnonceController extends AbstractController
 ////            'title' => 'Créer une annonce']
 //);
     }
+
+
+    /**
+     * @Route("/annonces", name="annoncespage")
+     **/
+    public function annoncespage()
+    {
+        $repository = $this->getDoctrine()->getRepository(Annonce::class);
+        $annonces = $repository->findAll();
+
+        return $this->render('annoncesPage.html.twig', [
+            'title' => $this->getUser()->getUsername(),
+            'annonces'=>$annonces,
+            //'user'=>$annonces->getSeller()->getUsername()
+        ]);
+    }
+
+//
+//    /**
+//     * @Route("/annoncesdunuser", name="annoncesdunuserpage")
+//     **/
+//    public function annoncesdunuser()
+//    {
+////        $repository = $this->getDoctrine()->getRepository(Annonce::class);
+//        $annoncesDunUser =
+//
+//        return $this->render('annoncesDunUser.html.twig', [
+//            'user' => $this->getUser()->getUsername(),
+//
+//            //'user'=>$annonces->getSeller()->getUsername()
+//        ]);
+//    }
+
 //    public function index()
 //    {
 //        $category = new Category();

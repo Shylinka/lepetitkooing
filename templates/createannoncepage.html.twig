@@ -18,10 +18,23 @@
 
             <form action="{{ path('annoncecreeepage') }}" method="post">
 
-            <div class="form-group">
-                <label for="inputCategory">Catégorie</label>
-                <input type="text" class="form-control" id="inputCategory" placeholder="Ex : Meuble" name="category">
-            </div>
+                <div class="form-group">
+                    <select name="category" id="categorie-select" size="1">
+                        <option >Meuble</option>
+                        <option >Multimédia</option>
+                        <option >Immobilier</option>
+                        <option >Véhicule</option>
+                        <option >Mode</option>
+                        <option >Loisirs</option>
+                        <option >Services</option>
+                        <option >Autres</option>
+                    </select>
+                </div>
+
+            {#<div class="form-group">#}
+                {#<label for="inputCategory">Catégorie</label>#}
+                {#<input type="text" class="form-control" id="inputCategory" placeholder="Ex : Meuble" name="category">#}
+            {#</div>#}
 
             <div class="form-group">
                 <label for="inputTitle">Titre de l'annonce</label>

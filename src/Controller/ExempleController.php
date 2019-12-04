@@ -42,15 +42,7 @@ class ExempleController extends AbstractController
 //        ]);
 //    }
 
-    /**
-     * @Route("/annonces", name="annoncespage")
-     **/
-    public function annoncespage()
-    {
-        return $this->render('annoncesPage.html.twig', [
-            'title' => $this->getUser()->getUsername()
-        ]);
-    }
+
 
     /**
      * @Route("/annonce", name="annoncepage")

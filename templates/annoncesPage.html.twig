@@ -13,8 +13,22 @@
         <button class = "button"><a href=" {{ path('app_logout') }}">Deconnexion</a></button>
     </div>
 
-    <p>Annonces</p>
+    <div class = "titre">Annonces</div>
 
+
+    {% for a in annonces|reverse %}
+        <div class = "cadreAnnonce">
+
+            <div class = "titreAnnonce"><p>{{ a.title }}</p></div>
+            <p>{{ a.price }} €</p>
+            <p>{{ a.description }}</p>
+            <p>de {{ a.seller.username }}</p>
+
+        </div>
+    {% endfor %}
+
+
+    </div>
 
 
 
