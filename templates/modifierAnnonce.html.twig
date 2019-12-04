@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block title %}Login Page{% endblock %}
+
+{% block body %}
+    <img src="images/logo.png" class="logo" >
+    <h1>{{ title }}</h1>
+
+    {#style="width:20%"#}
+    <div class="alignbutton">
+        <button class = "button"><a href=" {{ path('profilpage') }}">Mon Profil</a></button>
+        <button class = "button"><a href=" {{ path('homepage') }}">Deconnexion</a></button>
+
+    </div>
+
+
+    <div class="menu">
+
+
+        <form action="{{ path('newAnnonce', {annonceId: annonce.id}) }}" method="post">
+
+            <div class="form-group">
+                <select name="category" id="categorie-select" size="1">
+                    <option >Meuble</option>
+                    <option >Multimédia</option>
+                    <option >Immobilier</option>
+                    <option >Véhicule</option>
+                    <option >Mode</option>
+                    <option >Loisirs</option>
+                    <option >Services</option>
+                    <option >Autres</option>
+                </select>
+            </div>
+
+            {#<div class="form-group">#}
+            {#<label for="inputCategory">Catégorie</label>#}
+            {#<input type="text" class="form-control" id="inputCategory" placeholder="Ex : Meuble" name="category">#}
+            {#</div>#}
+
+            <div class="form-group">
+                <label for="inputTitle">Titre de l'annonce</label>
+                <input type="text" class="form-control" id="inputTitle" placeholder="{{ annonce.title }}" name="title">
+            </div>
+
+            <div class="form-group">
+                <label for="inputDescription">Description de l'annonce</label>
+                <input type="text" class="form-control" id="inputDescription" placeholder="{{ annonce.description }}" name="description">
+            </div>
+
+            <div class="price">
+                <label for="inputPrice">Prix (en €)</label>
+                <input type="text" class="form-control" id="inputPrice" placeholder={{ annonce.price }} name="price">
+            </div>
+            <button type="submit" class = "blueButton"><a></a>Poster l'annonce</button>
+            {#<button type="submit" class="btn btn-outline-primary">J'ai fini</button>#}
+        </form>
+    </div>
+
+
+
+{% endblock %}

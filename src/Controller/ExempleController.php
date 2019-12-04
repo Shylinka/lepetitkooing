@@ -60,7 +60,10 @@ class ExempleController extends AbstractController
     public function profilpage()
     {
         return $this->render('profil.html.twig', [
-            'title' => 'Mon profil'
+            'title' => 'Mon profil',
+            'change' => '',
+            'changeUsername' => '',
+            'username' => $this->getUser()->getUsername()
         ]);
     }
 //

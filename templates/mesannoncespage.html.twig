@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mes annonces{% endblock %}
+
+{% block body %}
+    <img src="images/logo.png" class="logo" >
+    <h1>{{ title }}</h1>
+
+    {#style="width:20%"#}
+    <div class="alignbutton">
+        <button class = "button"><a href=" {{ path('annoncespage') }}">Annonces</a></button>
+        <button class = "button"><a href=" {{ path('app_logout') }}">Deconnexion</a></button>
+        <button class = "button"><a href=" {{ path('profilpage') }}">Mon profil</a></button>
+    </div>
+
+    {% for a in annonces | reverse %}
+        <div class = "cadreAnnonce">
+            <div class = "titreAnnonce">
+                <p>{{ a.title }}</p>
+            </div>
+            <p>{{ a.price }} €</p>
+            <p>{{ a.description }}</p>
+
+            <div >
+                <button class = "blueButton"><a href=" {{ path('modifierAnnonce', {annonceId : a.id}) }}">Modifier</a></button>
+                <button class = "blueButton"><a href=" {{ path('supprimerAnnonce', {annonceId : a.id}) }}">Supprimer</a></button>
+            </div>
+        </div>
+    {% endfor %}
+
+
+
+
+
+{% endblock %}

@@ -5,19 +5,61 @@
 <img src="images/logo.png" class="logo" >
 <h1>{{ title }}</h1>
 
-{#style="width:20%"#}
-<div class="alignbutton">
-    <button class = "button"><a href=" {{ path('annoncespage') }}">Annonces</a></button>
-    <button class = "button"><a href=" {{ path('app_logout') }}">Deconnexion</a></button>
+    {#style="width:20%"#}
+    <div class="alignbutton">
+        <button class = "button"><a href=" {{ path('annoncespage') }}">Annonces</a></button>
+        <button class = "button"><a href=" {{ path('app_logout') }}">Deconnexion</a></button>
 
+    </div>
 
-
-</div>
     <div class="creerAnnonce">
         <form action="{{ path('createannoncepage') }}" method="post">
             <button type="submit" class = "blueButton" >Créer une annonce</button>
         </form>
+        <br>
+        <form action="{{ path('mesannoncespage') }}" method="post">
+            <button type="submit" class = "blueButton" >Gérer mes annonces</button>
+        </form>
     </div>
+
+    <br>
+    <br>
+    <p class = "titre">Mes informations</p>
+    <div class="menu">
+        <div class="form-group">
+            <form action="{{ path('changepassword') }}" method="post">
+                <label for="inputUsername">Changer de mot de passe : </label>
+                <label for="inputUsername" class="sr-only">Username</label>
+                <input type="password"  name="OldPassword" id="inputPassword" class="form-control" placeholder="Ancien mot de passe" required>
+                <br>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" name="NewPassword" id="inputPassword" class="form-control" placeholder="Nouveau mot de passe" required>
+                <br>
+                <button class="blueButton" type="submit"><a></a>Valider</button>
+                <br>
+                <p class ="change">{{ change }}</p>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="menu">
+        <div class="form-group">
+            <form action="{{ path('changeusername') }}" method="post">
+                <label for="inputUsername">Changer de nom d'uilisateur : </label>
+                <br>
+                <br>
+                <p>Nom d'utilisateur actuel : {{ username }}</p>
+                <label for="inputUsername" class="sr-only">Password</label>
+                <input type="text" name="NewUsername" id="inputUsername" class="form-control" placeholder="Nouveau nom d'utilisateur" required>
+                <br>
+                <button class="blueButton" type="submit"><a></a>Valider</button>
+                <br>
+                <p class ="changeUsername">{{ change }}</p>
+            </form>
+        </div>
+    </div>
+
 
 
 
