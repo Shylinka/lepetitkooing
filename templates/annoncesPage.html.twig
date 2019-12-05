@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Login Page{% endblock %}
+{% block title %}Toutes les annonces{% endblock %}
 
 {% block body %}
     <img src="images/logo.png" class="logo" >
@@ -16,13 +16,63 @@
     <div class = "titre">Annonces</div>
 
 
+    <form action="{{ path('recherche') }}" method="post">
+    <div class="formulaireRecherche">
+        <p class="centrer">Recherche : </p>
+        <select name="subCategory" id="categorie-select" size="1">
+            <optgroup label="MAISON">
+                <option>Ameublement</option>
+                <option>Décoration</option>
+            </optgroup>
+            <optgroup label="MULTIMEDIA">
+                <option>Informatique</option>
+                <option>Consoles et jeux vidéos</option>
+            </optgroup>
+            <optgroup label="VEHICULES">
+                <option>Voitures</option>
+                <option>Motos</option>
+            </optgroup>
+            <optgroup label="IMMOBILIER">
+                <option>Ventes</option>
+                <option>Locations</option>
+            </optgroup>
+            <optgroup label="MODE">
+                <option>Vetements</option>
+                <option>Chaussures</option>
+            </optgroup>
+            <optgroup label="LOISIRS">
+                <option>Musique</option>
+                <option>Livre</option>
+            </optgroup>
+            <optgroup label="SERVICES">
+                <option>Billeterie</option>
+                <option>Covoiturage</option>
+            </optgroup>
+            <optgroup label="AUTRES">
+                <option>Divers</option>
+                <option>Toilettes</option>
+            </optgroup>
+
+        </select>
+    </div>
+        <br>
+        <div class="centrer">
+            <button type="submit" class = "blueButton"><a></a>Valider</button>
+        </div>
+
+    </form>
+
+
+
     {% for a in annonces|reverse %}
         <div class = "cadreAnnonce">
 
             <div class = "titreAnnonce"><p>{{ a.title }}</p></div>
+            <p>Catégorie : {{ a.category }}</p>
             <p>{{ a.price }} €</p>
             <p>{{ a.description }}</p>
             <p>de {{ a.seller.username }}</p>
+
 
         </div>
     {% endfor %}

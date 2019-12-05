@@ -53,6 +53,9 @@ a:hover, a:focus, a:active, a:visited
 
 }
 
+.centrer{
+    text-align: center;
+}
 
 
 .button {
@@ -188,5 +191,10 @@ a:hover, a:focus, a:active, a:visited
 
 .change {
     color : blue;
+}
+
+.formulaireRecherche{
+    margin-top :50px;
+    text-align: center;
 }
 

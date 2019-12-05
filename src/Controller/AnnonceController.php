@@ -65,7 +65,7 @@ class AnnonceController extends AbstractController
 
         $annonce = new Annonce();
 
-        $annonce->setCategory($request->get('category'))
+        $annonce->setCategory($request->get('subCategory'))
             ->setTitle($request->get('title'))
             ->setDescription($request->get('description'))
             ->setPrice($request->get('price'))
@@ -123,6 +123,24 @@ class AnnonceController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/recherche", name="recherche")
+     **/
+    public function recherche(Request $request){
+        $category=$request->get('subCategory');
+        $repository = $this->getDoctrine()->getRepository(Annonce::class);
+        $annonces = $repository->findBy(['category' => $category]);
+
+
+        return $this->render('annoncesPage.html.twig', [
+            'title' => $this->getUser()->getUsername(),
+            'annonces'=>$annonces,
+            //'user'=>$annonces->getSeller()->getUsername()
+        ]);
+    }
+
+
     /**
      * @Route("/modifierAnnonce/{annonceId}", name="modifierAnnonce")
      **/
@@ -146,7 +164,7 @@ class AnnonceController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Annonce::class);
         $annonce = $repository->findOneBy(['id' => $annonceId]);
 
-        $annonce->setCategory($request->get('category'))
+        $annonce->setCategory($request->get('subCategory'))
             ->setTitle($request->get('title'))
             ->setDescription($request->get('description'))
             ->setPrice($request->get('price'));
