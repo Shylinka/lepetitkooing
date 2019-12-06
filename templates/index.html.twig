@@ -4,46 +4,28 @@
 {% block body %}
     <img src="images/logo.png" class="logo" >
     <h1>{{ title }}</h1>
-    {#<p>{{ prenom }}  {{ nom }} {{ verbe }}  {{ COD }}</p>#}
 
 
+    <img src="images/toilettes.png" class="imageToilettes">
 
-    {#style="width:20%"#}
     <div class="alignbutton">
         <button class = "button"><a href=" {{ path('loginpage') }}">Connexion</a></button>
         <button class = "button"><a href=" {{ path('registrationpage') }}">Inscription</a></button>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
+    {% block javascripts %}
 
 
-    {#// on insère les scripts défini dans le template base.html.twig (le parent de notre template cf extends en haut)#}
-
-    {#//ci dessous on défini notre nouveau script#}
-    {#//on oublie pas d'utiliser assets si c'est un script local#}
+    {% endblock%}
 
 
 
-    <script src="{{asset('javascript/bousin3000.js')}}"> </script>
-{% endblock%}
+
+
+
+
+
+
+
