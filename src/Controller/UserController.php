@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,11 +48,6 @@ class UserController extends AbstractController
         $oldPassword = $request->get('OldPassword');
         $checkPass = $passwordEncoder->isPasswordValid($user, $oldPassword);
 
-//        $userActualPassword = $this->getUser()->getPassword();
-//        $verifPassword = $userPasswordEncoder->encodePassword($user, $request->get('OldPassword'));
-//        dum($userActualPassword);
-//        dd($verifPassword);
-//        die;
 
         if($checkPass === true){
             $user->setPassword($passwordEncoder->encodePassword($user,$request->get('NewPassword')));
@@ -97,27 +93,5 @@ class UserController extends AbstractController
 
     }
 
-//    /**
-//     * @Route("/isLoged", name="isLogedPage")
-//     **/
-//    public function connexion(EntityManagerInterface $em, Request $request)
-//    {
-//        $user = new User();
-//        $user->setEmail($request->get('email'))
-//            ->setPassword($request->get('password'));
-//
-//        $kConnect = $request->get('keepConnect');
-//
-//        $repository = $em->getRepository(User::class);
-//
-//        $user = $repository->findAll();
-//
-//        $em->persist($user);
-//        $em->flush();
-//
-//        return $this->render('annoncesPage.html.twig', [
-//            'title' => 'Bonjour' . $user->getUsername() . ' !'
-//        ]);
-//    }
 
 }

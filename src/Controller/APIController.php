@@ -18,7 +18,6 @@ use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
-//use App\Service\RandomHelper; // Ne pas oublier de use le service
 
 use App\Security\LoginFromAuthenticator;
 
